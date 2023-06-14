@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
 import Calendar from 'components/components/Calendar'
 import CategoryList from 'components/components/Lists/CategoryList'
 import AppPage from 'components/components/AppPage'
@@ -124,7 +123,7 @@ export async function getStaticProps () {
   const bookings = await loadBookings()
   const settings = await loadSettings()
   const services = await loadServices()
-  
+
   return {
       props: {
           bookings: bookings['message'],

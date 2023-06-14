@@ -1,4 +1,4 @@
-import { Button, Input, TextInput, Title } from '@mantine/core'
+import { Button, TextInput, Title } from '@mantine/core'
 import React from 'react'
 import MainModal from './MainModal'
 import { hideModal } from '.'
