@@ -8,7 +8,6 @@ function MainSidebar() {
   return (
     <Card className={styles.mainSidebar}>
       
-    sidebar
     </Card>
   )
 }
