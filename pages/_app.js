@@ -21,7 +21,6 @@ export default function App({ Component, pageProps }) {
         }}
       >
         <AppLayout>
-
           <Component {...pageProps} />
           <ModalDispatcher />
         </AppLayout>
