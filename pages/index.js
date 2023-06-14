@@ -15,7 +15,7 @@ import CustomerDetails from 'components/components/Customer'
 import { removeClientData } from 'components/util/actions'
 import { isBrowser, isMobile } from 'react-device-detect'
 import NoSSRWrapper from 'components/components/NoSSRWrapper'
-
+import { loadBookings, loadServices, loadSettings } from 'components/lib/loadData'
 
 export default function Home({bookings, settings, services}) {
   
@@ -121,12 +121,10 @@ export default function Home({bookings, settings, services}) {
 
 export async function getStaticProps () {
 
-  let _bookings = await fetch('https://vercel.com/mitzanu1/bookings/api/bookings')
-  let bookings = await _bookings.json()
-  let _settings = await fetch('https://vercel.com/mitzanu1/bookings/api/settings')
-  let settings = await _settings.json()
-  let _services = await fetch ('https://vercel.com/mitzanu1/bookings/api/services')
-  let services = await _services.json()
+  const bookings = await loadBookings()
+  const settings = await loadSettings()
+  const services = await loadServices()
+  
   return {
       props: {
           bookings: bookings['message'],
