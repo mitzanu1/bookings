@@ -1,0 +1,28 @@
+
+.mainMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 1rem;
+  padding: 1.5rem 1rem;
+  
+  .icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    grid-gap: .5rem;;
+    padding:  0 1rem;
+  }
+  
+  .center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .accountName {
+    margin-top: .25rem;
+    padding-right: .25rem;
+  }
+}
+

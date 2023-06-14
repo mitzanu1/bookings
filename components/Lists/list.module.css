@@ -1,0 +1,43 @@
+.service {
+    text-align: left;
+    cursor: pointer;
+    padding: 0.5rem 1rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+.list {
+    min-height: 87vh;
+}
+
+.details {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.listItem {
+    padding: 0.3rem 1.5rem;
+    width: 100%;
+}
+.listItem > div {
+    width: 100%;
+}
+.main {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .service {
+        text-align: center;
+    }
+    .list {
+        margin-top: 2rem
+    }
+    .listItem{
+        text-align: center;
+        margin-top:1rem
+    }
+    .details {
+        justify-content: space-around;
+    }
+}

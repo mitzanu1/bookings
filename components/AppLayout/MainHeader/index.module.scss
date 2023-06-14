@@ -1,0 +1,25 @@
+
+.mainHeader {
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  padding: .75rem 1rem;
+  overflow: visible;
+  background: var(--mantine-color-blue-9);
+  z-index: 1;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  grid-gap: .5rem;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  grid-gap: 1rem;
+}
+

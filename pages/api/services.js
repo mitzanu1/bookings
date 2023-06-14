@@ -4,30 +4,30 @@ import { ObjectId } from 'mongodb';
 export default async function handler(req, res) {
     switch (req.method) {
         case 'GET': {
-            return getBookings(req, res);
+            return getServices(req, res);
         }
         case 'POST': {
-            return addBookings(req, res);
+            return addServices(req, res);
         }
         case 'PUT': {
-            return updateBookings(req, res);
+            return updateServices(req, res);
         }
-        case 'DELETE': {
-            return deleteBookings(req, res);
+        case 'PATCH': {
+            return deleteServices(req, res);
         }
     }
 }
 
-async function getBookings(req,res){
+async function getServices(req,res){
   try {
-      let { db } = await connectToDatabase()
-      let bookings = await db
-          .collection('bookings')
+      let { db } = await connectToDatabase();
+      let services = await db
+          .collection('services')
           .find({})
           .sort()
-          .toArray();
+          .toArray()
       return res.json({
-          message: JSON.parse(JSON.stringify(bookings)),
+          message: JSON.parse(JSON.stringify(services)),
           success: true,
       });
   } catch (error) {
@@ -38,12 +38,12 @@ async function getBookings(req,res){
   }
 }
 
-async function addBookings(req, res) {
+async function addServices(req, res) {
   try {
       let { db } = await connectToDatabase();
-      await db.collection('bookings').insertOne(JSON.parse(req.body));
+      await db.collection('services').insertOne(JSON.parse(req.body));
       return res.json({
-          message: 'Booking added successfully',
+          message: 'Service added successfully',
           success: true,
       });
   } catch (error) {
@@ -55,17 +55,18 @@ async function addBookings(req, res) {
 }
 
 
-async function updateBookings(req, res) {
+async function updateServices(req, res) {
+  const updates = JSON.parse(req.body)
   try {
       let { db } = await connectToDatabase();
-      await db.collection('bookings').updateOne(
+      await db.collection('services').updateOne(
           {
-              _id: new ObjectId(req.body),
+            _id: new ObjectId(updates._id),
           },
-          { $set: { published: true } }
+          { $set: { service: updates.service } }
       );
       return res.json({
-          message: 'Booking updated successfully',
+          message: 'Service updated successfully',
           success: true,
       });
   } catch (error) {
@@ -76,14 +77,15 @@ async function updateBookings(req, res) {
   }
 }
 
-async function deleteBookings(req, res) {
+async function deleteServices(req, res) {
+    const _id = JSON.parse(req.body)
   try {
       let { db } = await connectToDatabase();
-      await db.collection('bookings').deleteOne({
-          _id: new ObjectId(req.body),
+      await db.collection('services').deleteOne({
+          _id: new ObjectId(_id),
       });
       return res.json({
-          message: 'Booking deleted successfully',
+          message: 'Service deleted successfully',
           success: true,
       });
   } catch (error) {

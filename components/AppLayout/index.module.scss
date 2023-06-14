@@ -1,0 +1,19 @@
+
+
+.appLayout {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+
+  @media only screen and (max-width: 1000px) {
+    flex-direction: column-reverse;
+  }
+}

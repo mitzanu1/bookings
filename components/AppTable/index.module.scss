@@ -1,0 +1,33 @@
+.appTable {
+  flex: 1;
+  overflow: auto;
+  padding: .75rem;
+  background: var(--mantine-color-gray-2);
+  >table {
+    background: var(--mantine-color-white);
+  }
+
+  .lg {
+    min-width: 16rem;
+  }
+
+  .sm {
+    min-width: 0;
+  }
+
+  .checkbox {
+    min-width: 1.25rem;
+    padding: 1.25rem;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .expandedRow {
+    >td {
+      padding: 0;
+    }
+
+  }
+}

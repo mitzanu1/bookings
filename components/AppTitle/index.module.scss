@@ -1,0 +1,22 @@
+
+.mainTitle {
+  display: flex;
+  grid-gap: .5rem;
+  height: 1.75rem;
+  align-items: center;
+
+  >:first-child {
+    flex: none;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  grid-gap: .75rem;
+}
