@@ -39,7 +39,9 @@ function CustomerDetails() {
       }
       
       if(_.isEmpty(bookingDate)) {
-        actions.set('controls.message', 'Please select a booking date from the calendar')
+        notifications.show({
+          message: 'Please select a booking date from the calendar'
+        })
         formik.setSubmitting(false)
         return
       }

@@ -121,11 +121,11 @@ export default function Home({bookings, settings, services}) {
 
 export async function getStaticProps () {
 
-  let _bookings = await fetch('http://localhost:3000/api/bookings')
+  let _bookings = await fetch('https://vercel.com/mitzanu1/bookings')
   let bookings = await _bookings.json()
-  let _settings = await fetch('http://localhost:3000/api/settings')
+  let _settings = await fetch('https://vercel.com/mitzanu1/bookings')
   let settings = await _settings.json()
-  let _services = await fetch ('http://localhost:3000/api/services')
+  let _services = await fetch ('https://vercel.com/mitzanu1/bookings')
   let services = await _services.json()
   return {
       props: {
