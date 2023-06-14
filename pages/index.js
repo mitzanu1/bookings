@@ -29,6 +29,8 @@ export default function Home({bookings, settings, services}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <NoSSRWrapper>
       
       {view === 'services' && 
       <AppPage
@@ -111,6 +113,7 @@ export default function Home({bookings, settings, services}) {
           bookings={bookings} 
           settings={settings}/>
       </AppPage>}
+    </NoSSRWrapper>
     </>
   )
 }
