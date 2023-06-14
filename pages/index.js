@@ -29,9 +29,8 @@ export default function Home({bookings, settings, services}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <NoSSRWrapper>
-      
+      <div>test</div>
+      {/* <NoSSRWrapper>
       {view === 'services' && 
       <AppPage
         className='services'
@@ -113,22 +112,22 @@ export default function Home({bookings, settings, services}) {
           bookings={bookings} 
           settings={settings}/>
       </AppPage>}
-    </NoSSRWrapper>
+    </NoSSRWrapper> */}
     </>
   )
 }
 
-export async function getStaticProps () {
+// export async function getStaticProps () {
 
-  const bookings = await loadBookings()
-  const settings = await loadSettings()
-  const services = await loadServices()
+//   const bookings = await loadBookings()
+//   const settings = await loadSettings()
+//   const services = await loadServices()
 
-  return {
-      props: {
-          bookings: bookings['message'],
-          settings: settings['message'],
-          services: services['message'] 
-      },
-  };
-}
+//   return {
+//       props: {
+//           bookings: bookings['message'],
+//           settings: settings['message'],
+//           services: services['message'] 
+//       },
+//   };
+// }
