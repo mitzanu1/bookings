@@ -126,9 +126,9 @@ export async function getStaticProps () {
 
   return {
       props: {
-          bookings: bookings['message'] || [],
-          settings: settings['message'] || [],
-          services: services['message'] || []
+          bookings: bookings['message'],
+          settings: settings['message'],
+          services: services['message'] 
       },
   };
 }
