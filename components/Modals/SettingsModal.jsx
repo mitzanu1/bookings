@@ -7,7 +7,7 @@ import { useFormik } from 'formik'
 import { useRouter } from "next/router"
 
 function SettingsModal(settings) {
-  
+
   const router = useRouter()
 
   const formik = useFormik({
@@ -29,10 +29,10 @@ function SettingsModal(settings) {
             method:'PUT',
             body:JSON.stringify(values)
         })
-        router.replace(router.asPath)
-        hideModal()
       } finally {
+        hideModal()
         formik.setSubmitting(false)
+        router.reload()
       }
     }
   })

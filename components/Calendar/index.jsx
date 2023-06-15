@@ -11,15 +11,20 @@ import styles from './index.module.scss'
 import { notifications } from '@mantine/notifications'
 import { isBrowser, isMobile } from 'react-device-detect'
 
-function Calendar({bookings, settings}) {
+const defaultSettings = {
+  height:'90%',
+  slotDuration:"00:15",
+  businessHoursStartTime:"6:00", 
+  businessHoursEndTime:"20:00",
+  dayHeaderFormatWeekday:"short",
+  slotMinTime:"06:00:00",
+  slotMaxTime:"18:00:00",
+  scrollTime:"09:00:00",
+  locale:'en',
+}
+
+function Calendar({bookings, settings=defaultSettings}) {
   
-  const [title, setTitle] = useState('')
-
-  React.useEffect(()=>{ 
-      if(isMobile) setTitle('')
-      if(isBrowser) setTitle('title')   
-  },[]) 
-
   const controls = useSelector(()=>actions.get('controls'))
   const { duration = 15, endDate, name, selectedDate } = controls || ''
 
@@ -131,7 +136,7 @@ function Calendar({bookings, settings}) {
       headerToolbar= {
         { 
           left: 'prev,next today',
-          center: title,
+          center: isMobile ? '' : 'title',
           right: 'timeGridWeek,timeGridDay'
         }
       }

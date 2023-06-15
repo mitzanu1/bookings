@@ -38,14 +38,6 @@ function CustomerDetails() {
         clientPhone
       }
       
-      if(_.isEmpty(bookingDate)) {
-        notifications.show({
-          message: 'Please select a booking date from the calendar'
-        })
-        formik.setSubmitting(false)
-        return
-      }
-
       try {
         const response = await fetch('/api/bookings', {
           method:'POST',
@@ -70,8 +62,8 @@ function CustomerDetails() {
       } finally {
         actions.set('controls.view', 'services')
         removeClientData()
-        router.replace(router.asPath)
         formik.setSubmitting(false)
+        router.reload()
       }
     }
   }) 

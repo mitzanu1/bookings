@@ -18,8 +18,8 @@ function DeleteCategoryModal({services}) {
         body:JSON.stringify(deleteId)
       })
     }finally {
-      router.replace(router.asPath)
       hideModal()
+      router.reload()
     }
   }
   return (

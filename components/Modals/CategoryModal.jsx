@@ -23,7 +23,7 @@ function CategoryModal() {
       })
     }finally {
       hideModal()
-      router.replace(router.asPath)
+      router.reload()
     }
   }
   return (

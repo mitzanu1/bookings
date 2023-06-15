@@ -11,16 +11,22 @@ import SettingsModal from 'components/components/Modals/SettingsModal'
 import { useSelector } from 'universal-reducer'
 import { actions } from 'components/util/store'
 import CustomerDetails from 'components/components/Customer'
-import { removeClientData } from 'components/util/actions'
+import { removeClientData, useBookingsFetcher, useServicesFetcher, useSettingsFetcher } from 'components/util/actions'
 import { isBrowser, isMobile } from 'react-device-detect'
 import NoSSRWrapper from 'components/components/NoSSRWrapper'
-import { loadBookings, loadServices, loadSettings } from 'components/lib/loadData'
 
-export default function Home({bookings, settings, services}) {
-  
-  const data = useSelector(()=>actions.get('controls'))
-  const { view = 'services', description = '' } = data || {}
 
+
+export default function Home() {
+
+  const bookings = useBookingsFetcher() || []
+  const services = useServicesFetcher() || []
+  const settings = useSettingsFetcher() 
+
+  const controls = useSelector(()=>actions.get('controls'))
+  const { view = 'services', description = '' } = controls || {}
+ 
+ 
   return (
     <>
       <Head>
@@ -115,19 +121,4 @@ export default function Home({bookings, settings, services}) {
     </NoSSRWrapper>
     </>
   )
-}
-
-export async function getStaticProps () {
-
-  const bookings = await loadBookings()
-  const settings = await loadSettings()
-  const services = await loadServices()
-
-  return {
-      props: {
-          bookings: bookings['message'],
-          settings: settings['message'],
-          services: services['message'] 
-      },
-  };
 }

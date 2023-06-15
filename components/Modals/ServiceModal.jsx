@@ -35,8 +35,8 @@ function ServiceModal({id, items }) {
         })
       }finally {
         hideModal()
-        router.replace(router.asPath)
         formik.setSubmitting(false)
+        router.reload()
       }
     }
   })

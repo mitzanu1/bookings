@@ -24,8 +24,8 @@ function DeleteServiceModal({id, items}) {
         body:JSON.stringify(service)
       })
     }finally {
-      router.replace(router.asPath)
       hideModal()
+      router.reload()
     }
   }
   return (
